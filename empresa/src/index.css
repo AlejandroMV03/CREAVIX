@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+/* -------------------------
+   Estilos generales del body
+-------------------------- */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: rgb(240, 233, 233);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* -------------------------
+   Animación de estrellas
+-------------------------- */
+@keyframes starMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 -500px; }
+}
+
+/* Clase para animar estrellas */
+.animate-star {
+  animation: starMove 100s linear infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background: linear-gradient(270deg, #FFD700, #FFFFFF, #FFD700);
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 5s ease infinite;
+}
+/* -------------------------
+   Opcional: puedes agregar
+   clases extras para
+   contenedores si quieres
+-------------------------- */
