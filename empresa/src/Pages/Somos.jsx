@@ -59,10 +59,10 @@ const Somos = () => {
           </div>
           <div className="flex justify-center opacity-0 animate-fadeUp delay-200">
             <img
-              src="../public/CREAVIXX.png"
-              alt="CreavixSFC equipo"
-              className="rounded-2xl shadow-lg max-h-96 object-cover transform transition-transform duration-700 hover:scale-105"
-            />
+  src="/CREAVIXX.png"
+  alt="CreavixSFC equipo"
+  className="rounded-2xl shadow-lg max-h-96 object-cover transform transition-transform duration-700 hover:scale-105"
+/>
           </div>
         </div>
       </section>
