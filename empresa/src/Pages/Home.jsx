@@ -1,8 +1,9 @@
+// Pages/Home.jsx
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import ParticlesBackground from '../components/ParticlesBackground';
 
 const Home = () => {
-  // Partículas simples con canvas
   useEffect(() => {
     const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d');
@@ -54,84 +55,112 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="relative z-10">
+    <div className="relative z-10 min-h-screen">
 
-      {/* ---------------- Fondo partículas ---------------- */}
+      {/* Fondo partículas */}
+      <ParticlesBackground />
       <canvas id="particles" className="fixed top-0 left-0 w-full h-full -z-10"></canvas>
       <div className="fixed inset-0 -z-20 bg-gradient-radial from-[#1f1f2e] to-[#0d0d1a]"></div>
 
-      {/* ---------------- Hero / Encabezado ---------------- */}
+      {/* Hero */}
       <section className="text-center py-32 px-4">
-        <h1 className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text animate-gradient">
+        <h1 className="text-5xl md:text-6xl font-title drop-shadow-lg text-gradient animate-glow opacity-0 animate-fadeUp">
           Transformamos ideas en experiencias digitales
         </h1>
-        <p className="text-xl md:text-2xl text-gray-300 mt-6 mb-8 hover:text-white transition-colors duration-500">
+        <p className="text-xl md:text-2xl mt-6 mb-8 font-body text-gradient animate-glow opacity-0 animate-fadeUp delay-200">
           Diseño y desarrollo web que impulsa tu negocio al siguiente nivel
         </p>
         <Link
           to="/Contacto"
-          className="px-8 py-4 bg-yellow-500 text-black font-bold rounded-lg hover:bg-yellow-400 transform hover:scale-110 transition-all duration-500 shadow-lg hover:shadow-2xl"
+          className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-lg shadow-lg transform hover:scale-105 transition duration-500"
         >
           Contáctanos
         </Link>
       </section>
 
-      {/* ---------------- Servicios ---------------- */}
-      <section className="py-20 bg-gray-900/30">
-        <h2 className="text-4xl font-bold text-center text-white mb-12">Nuestros Servicios</h2>
-        <div className="grid gap-8 px-8 justify-items-center
-                        grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          <div className="w-full max-w-sm bg-gray-800/70 rounded-xl p-6 text-center shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-500">
-            <div className="text-yellow-400 text-5xl mb-4 animate-bounce">💻</div>
-            <h3 className="text-xl font-semibold text-white mb-2 hover:text-yellow-300 transition-colors">Desarrollo Web Frontend</h3>
-            <p className="text-gray-300">Diseño moderno y funcional usando tecnologías actuales.</p>
-          </div>
+      {/* Quiénes somos */}
+      <section className="py-20 px-6 text-center bg-blue-950/30">
+        <h2 className="text-4xl font-title mb-12 text-gradient animate-glow opacity-0 animate-fadeUp">
+          Quiénes somos
+        </h2>
+        <p className="max-w-3xl mx-auto text-blue-200 text-lg leading-relaxed opacity-0 animate-fadeUp delay-200 font-body">
+          En <strong>CREAVIX SFC</strong> somos un equipo creativo, especializado en desarrollo web, diseño UI/UX y soluciones digitales integrales. 
+          Nos apasiona transformar ideas en experiencias interactivas y memorables que conecten con tus clientes y potencien tu negocio.
+        </p>
+      </section>
 
-          <div className="w-full max-w-sm bg-gray-800/70 rounded-xl p-6 text-center shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-500">
-            <div className="text-yellow-400 text-5xl mb-4 animate-bounce">🖥️</div>
-            <h3 className="text-xl font-semibold text-white mb-2 hover:text-yellow-300 transition-colors">Desarrollo Backend</h3>
-            <p className="text-gray-300">Sistemas robustos y bases de datos seguras y escalables.</p>
-          </div>
-
-          <div className="w-full max-w-sm bg-gray-800/70 rounded-xl p-6 text-center shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-500">
-            <div className="text-yellow-400 text-5xl mb-4 animate-bounce">🎨</div>
-            <h3 className="text-xl font-semibold text-white mb-2 hover:text-yellow-300 transition-colors">Diseño UI/UX</h3>
-            <p className="text-gray-300">Experiencias de usuario atractivas y fáciles de usar.</p>
-          </div>
+      {/* Servicios */}
+      <section className="py-20 px-6">
+        <h2 className="text-4xl font-title text-center mb-12 text-gradient animate-glow opacity-0 animate-fadeUp">
+          Nuestros Servicios
+        </h2>
+        <div className="grid gap-8 max-w-6xl mx-auto grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            { icon: '💻', title: 'Frontend Web', text: 'Diseño moderno y funcional usando tecnologías actuales.' },
+            { icon: '🖥️', title: 'Backend', text: 'Sistemas robustos y bases de datos seguras y escalables.' },
+            { icon: '🎨', title: 'UI/UX', text: 'Experiencias atractivas y fáciles de usar para tus usuarios.' }
+          ].map((item, i) => (
+            <div
+              key={i}
+              className={`bg-blue-900/40 rounded-2xl p-6 shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-cyan-400/50 opacity-0 animate-fadeUp delay-${200 + i*100}`}
+            >
+              <div className="text-5xl mb-4">{item.icon}</div>
+              <h3 className="text-xl font-title mb-2 text-cyan-400">{item.title}</h3>
+              <p className="text-blue-200 font-body">{item.text}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* ---------------- Beneficios ---------------- */}
-      <section className="py-20 px-4 text-center">
-        <h2 className="text-4xl font-bold text-white mb-12">Por qué elegir CREAVIX</h2>
-        <div className="grid gap-8 max-w-6xl mx-auto
-                        grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          <div className="bg-gray-800/70 rounded-xl p-6 shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-500">
-            <h3 className="text-xl font-semibold text-yellow-400 mb-2 hover:text-yellow-300 transition-colors">🚀 Entregas rápidas</h3>
-            <p className="text-gray-300">Cumplimos con los plazos acordados sin sacrificar calidad.</p>
-          </div>
-          <div className="bg-gray-800/70 rounded-xl p-6 shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-500">
-            <h3 className="text-xl font-semibold text-yellow-400 mb-2 hover:text-yellow-300 transition-colors">💡 Soluciones innovadoras</h3>
-            <p className="text-gray-300">Siempre buscamos mejorar y optimizar tus procesos digitales.</p>
-          </div>
-          <div className="bg-gray-800/70 rounded-xl p-6 shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-500">
-            <h3 className="text-xl font-semibold text-yellow-400 mb-2 hover:text-yellow-300 transition-colors">🛡️ Seguridad garantizada</h3>
-            <p className="text-gray-300">Tus sistemas y datos estarán protegidos con las mejores prácticas.</p>
-          </div>
+      {/* Nuestro proceso */}
+      <section className="py-20 px-6 text-center bg-blue-950/20">
+        <h2 className="text-4xl font-title mb-12 text-gradient animate-glow opacity-0 animate-fadeUp">
+          Nuestro proceso
+        </h2>
+        <div className="grid gap-8 max-w-6xl mx-auto grid-cols-1 sm:grid-cols-3">
+          {[
+            { step: '1', title: 'Planificación', text: 'Definimos objetivos, requerimientos y alcance del proyecto.' },
+            { step: '2', title: 'Diseño & Desarrollo', text: 'Creamos soluciones atractivas, funcionales y escalables.' },
+            { step: '3', title: 'Entrega & Soporte', text: 'Implementamos y acompañamos al cliente en cada etapa.' }
+          ].map((item, i) => (
+            <div
+              key={i}
+              className={`bg-blue-900/40 rounded-2xl p-6 shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-cyan-400/50 opacity-0 animate-fadeUp delay-${200 + i*100}`}
+            >
+              <div className="text-3xl mb-4 font-title text-cyan-400">{item.step}</div>
+              <h3 className="text-xl font-title mb-2 text-white">{item.title}</h3>
+              <p className="text-blue-200 font-body">{item.text}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* ---------------- CTA final ---------------- */}
+      {/* CTA final */}
       <section className="py-20 text-center">
-        <h2 className="text-4xl font-bold text-white mb-6 hover:text-yellow-400 transition-colors">¿Listo para impulsar tu negocio?</h2>
+        <h2 className="text-4xl font-title mb-6 text-gradient animate-glow opacity-0 animate-fadeUp">
+          ¿Listo para impulsar tu negocio?
+        </h2>
         <Link
           to="/Contacto"
-          className="px-8 py-4 bg-yellow-500 text-black font-bold rounded-lg hover:bg-yellow-400 transform hover:scale-110 transition duration-500 shadow-lg hover:shadow-2xl"
+          className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-lg shadow-lg transform hover:scale-105 transition duration-500"
         >
           Contáctanos Ahora
         </Link>
       </section>
 
+      {/* Animaciones */}
+      <style>
+        {`
+          @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+          }
+          .animate-fadeUp { animation: fadeUp 0.8s ease forwards; }
+          .delay-200 { animation-delay: 0.2s; }
+          .delay-300 { animation-delay: 0.3s; }
+          .delay-400 { animation-delay: 0.4s; }
+        `}
+      </style>
     </div>
   );
 };
