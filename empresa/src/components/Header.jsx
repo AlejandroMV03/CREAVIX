@@ -44,6 +44,16 @@ export default function Header() {
             </li>
             <li>
               <NavLink
+                to="/Somos"
+                className={({ isActive }) =>
+                  isActive ? "text-yellow-300" : "hover:text-yellow-300"
+                }
+              >
+                ¿Quienes somos?
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
                 to="/Contacto"
                 className={({ isActive }) =>
                   isActive ? "text-yellow-300" : "hover:text-yellow-300"
@@ -52,6 +62,7 @@ export default function Header() {
                 Contacto
               </NavLink>
             </li>
+            
           </ul>
         </nav>
 
@@ -99,6 +110,17 @@ export default function Header() {
               Inicio
             </NavLink>
             <NavLink
+              to="/Somos"
+              onClick={() => setMenuOpen(false)}
+              className={({ isActive }) =>
+                isActive
+                  ? "block text-yellow-300 text-xl"
+                  : "block text-white text-xl hover:text-yellow-300"
+              }
+            >
+              ¿Quienes somos?
+            </NavLink>
+            <NavLink
               to="/Contacto"
               onClick={() => setMenuOpen(false)}
               className={({ isActive }) =>
@@ -109,6 +131,7 @@ export default function Header() {
             >
               Contacto
             </NavLink>
+            
           </div>
         </div>
       </header>

@@ -3,6 +3,7 @@ import Home from './Pages/Home.jsx';
 import Header from './components/Header.jsx';
 import Contacto from './Pages/Contacto.jsx';
 import Footer from './components/Footer.jsx';
+import Somos from './Pages/Somos.jsx';
 
 function App() {
   return (
@@ -21,8 +22,10 @@ function App() {
       {/* Contenido principal encima del fondo */}
       <div className="relative z-10 min-h-screen">
         <Routes>
+          <Route path='/' element={<Home />} />
           <Route path='/Inicio' element={<Home />} />
           <Route path='/Contacto' element={<Contacto />} />
+          <Route path='/Somos' element={<Somos />} />
         </Routes>
         <Footer />
       </div>
