@@ -133,6 +133,7 @@ const Footer = () => {
             “La creatividad valiente transforma sueños en realidad.”<br></br> 
             <span className="text-xs text-gray-300 mt-1 font-normal not-italic">
               — CREAVIX SFC (PL@LIDER)
+              <p>México, Campeche, Campeche </p>
             </span>
           </p>
           <div>© {year} Creavix</div>

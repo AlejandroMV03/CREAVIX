@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap');
 
 /* -------------------------
    Estilos generales del body
@@ -36,6 +37,37 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradientMove 5s ease infinite;
+}
+
+.font-title {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-text {
+  font-family: 'Georgia', serif;
+}
+
+.font-body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.text-glow {
+  text-shadow: 0 0 5px #3b82f6, 0 0 10px #8b5cf6;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #8b5cf6, #3b82f6, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes textGlow {
+  0%, 100% { text-shadow: 0 0 5px #3b82f6, 0 0 10px #8b5cf6; }
+  50% { text-shadow: 0 0 20px #06b6d4, 0 0 40px #3b82f6; }
+}
+
+.animate-glow {
+  animation: textGlow 2s infinite;
 }
 /* -------------------------
    Opcional: puedes agregar

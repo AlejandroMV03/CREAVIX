@@ -28,9 +28,16 @@ export default function Header() {
         {/* ---------------- Navbar Desktop ---------------- */}
         <nav className="hidden md:flex justify-between items-center px-8 py-4 bg-gray-900 text-white shadow-md fixed top-0 left-0 w-full z-50">
           {/* CREAVIX con animación y gradiente premium */}
-          <div className="text-2xl font-bold gradient-text text-shadow animate-fade-up shine-effect">
-            CREAVIX
-          </div>
+          <div className="flex items-center space-x-2">
+  <img
+    src="/creavixxx.png"
+    alt="Logo Creavix"
+    className="h-10 w-auto md:h-12" // tamaño responsivo
+  />
+  <span className="text-2xl font-bold gradient-text text-shadow animate-fade-up shine-effect">
+    CREAVIX 
+  </span>
+</div>
           <ul className="flex space-x-8 text-lg">
             <li>
               <NavLink
@@ -49,7 +56,7 @@ export default function Header() {
                   isActive ? "text-yellow-300" : "hover:text-yellow-300"
                 }
               >
-                ¿Quienes somos?
+                ¿Quiénes somos?
               </NavLink>
             </li>
             <li>
@@ -118,7 +125,7 @@ export default function Header() {
                   : "block text-white text-xl hover:text-yellow-300"
               }
             >
-              ¿Quienes somos?
+              ¿Quiénes somos?
             </NavLink>
             <NavLink
               to="/Contacto"
