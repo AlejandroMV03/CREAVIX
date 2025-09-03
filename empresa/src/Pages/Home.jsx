@@ -1,7 +1,22 @@
 // Pages/Home.jsx
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import ParticlesBackground from '../components/ParticlesBackground';
+
+const AnimatedText = ({ text }) => {
+  return (
+    <div className="inline-block">
+      {text.split('').map((char, i) => (
+        <span
+          key={i}
+          className="animated-letter"
+          style={{ animationDelay: `${i * 0.05}s` }}
+        >
+          {char === ' ' ? '\u00A0' : char}
+        </span>
+      ))}
+    </div>
+  );
+};
 
 const Home = () => {
   useEffect(() => {
@@ -56,7 +71,6 @@ const Home = () => {
 
   return (
     <div className="relative z-10 min-h-screen">
-
       {/* Fondo partículas */}
       <ParticlesBackground />
       <canvas id="particles" className="fixed top-0 left-0 w-full h-full -z-10"></canvas>
@@ -64,26 +78,20 @@ const Home = () => {
 
       {/* Hero */}
       <section className="text-center py-32 px-4">
-        <h1 className="text-5xl md:text-6xl font-title drop-shadow-lg text-gradient animate-glow opacity-0 animate-fadeUp">
-          Transformamos ideas en experiencias digitales
+        <h1 className="text-4xl md:text-5xl drop-shadow-lg text-center">
+          <AnimatedText text="Transformamos ideas en experiencias digitales" />
         </h1>
         <p className="text-xl md:text-2xl mt-6 mb-8 font-body text-gradient animate-glow opacity-0 animate-fadeUp delay-200">
           Diseño y desarrollo web que impulsa tu negocio al siguiente nivel
         </p>
-        <Link
-          to="/Contacto"
-          className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-lg shadow-lg transform hover:scale-105 transition duration-500"
-        >
-          Contáctanos
-        </Link>
       </section>
 
       {/* Quiénes somos */}
       <section className="py-20 px-6 text-center bg-blue-950/30">
         <h2 className="text-4xl font-title mb-12 text-gradient animate-glow opacity-0 animate-fadeUp">
-          Quiénes somos
+          ¿Quiénes somos?
         </h2>
-        <p className="max-w-3xl mx-auto text-blue-200 text-lg leading-relaxed opacity-0 animate-fadeUp delay-200 font-body">
+        <p className="text-xl md:text-2xl mt-6 mb-8 font-body text-gradient animate-glow opacity-0 animate-fadeUp delay-200">
           En <strong>CREAVIX SFC</strong> somos un equipo creativo, especializado en desarrollo web, diseño UI/UX y soluciones digitales integrales. 
           Nos apasiona transformar ideas en experiencias interactivas y memorables que conecten con tus clientes y potencien tu negocio.
         </p>
@@ -98,7 +106,8 @@ const Home = () => {
           {[
             { icon: '💻', title: 'Frontend Web', text: 'Diseño moderno y funcional usando tecnologías actuales.' },
             { icon: '🖥️', title: 'Backend', text: 'Sistemas robustos y bases de datos seguras y escalables.' },
-            { icon: '🎨', title: 'UI/UX', text: 'Experiencias atractivas y fáciles de usar para tus usuarios.' }
+            { icon: '🎨', title: 'UI/UX', text: 'Experiencias atractivas y fáciles de usar para tus usuarios.' },
+            { icon: '📝', title: 'MENUS', text: 'Sitio de visualización amigable para la presentacion del ménu de un restaurante.' }
           ].map((item, i) => (
             <div
               key={i}
@@ -134,33 +143,6 @@ const Home = () => {
           ))}
         </div>
       </section>
-
-      {/* CTA final */}
-      <section className="py-20 text-center">
-        <h2 className="text-4xl font-title mb-6 text-gradient animate-glow opacity-0 animate-fadeUp">
-          ¿Listo para impulsar tu negocio?
-        </h2>
-        <Link
-          to="/Contacto"
-          className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-lg shadow-lg transform hover:scale-105 transition duration-500"
-        >
-          Contáctanos Ahora
-        </Link>
-      </section>
-
-      {/* Animaciones */}
-      <style>
-        {`
-          @keyframes fadeUp {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-          }
-          .animate-fadeUp { animation: fadeUp 0.8s ease forwards; }
-          .delay-200 { animation-delay: 0.2s; }
-          .delay-300 { animation-delay: 0.3s; }
-          .delay-400 { animation-delay: 0.4s; }
-        `}
-      </style>
     </div>
   );
 };

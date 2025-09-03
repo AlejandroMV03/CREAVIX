@@ -1,12 +1,21 @@
-// Header.jsx
-import { NavLink, useLocation } from "react-router-dom"; // <-- agregamos useLocation
+import { NavLink, useLocation } from "react-router-dom";
 import React, { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const menuRef = useRef();
-  const location = useLocation(); // <-- obtenemos la ruta actual
+  const location = useLocation();
+
+  // Detecta scroll para cambiar color del header
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Cierra el menú al hacer clic fuera
   useEffect(() => {
@@ -31,16 +40,21 @@ export default function Header() {
   return (
     <>
       <header className="relative z-50">
-        {/* ... tu código de Navbar Desktop y Móvil sin cambios ... */}
         {/* ---------------- Navbar Desktop ---------------- */}
-        <nav className="hidden md:flex justify-between items-center px-8 py-4 bg-gray-900 text-white shadow-md fixed top-0 left-0 w-full z-50">
+        <nav
+          className={`hidden md:flex justify-between items-center px-8 py-4 fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
+            scrolled
+              ? "bg-[#0f0f1f]/80 backdrop-blur-md shadow-lg"
+              : "bg-[#0f0f1f]"
+          } text-white`}
+        >
           <div className="flex items-center space-x-2">
             <img
               src="/creavixgif.gif"
               alt="Logo Creavix"
               className="h-10 w-auto md:h-12"
             />
-            <span className="text-2xl font-bold gradient-text text-shadow animate-fade-up shine-effect">
+            <span className="text-2xl md:text-2xl font-bold gradient-text">
               CREAVIX
             </span>
           </div>
@@ -79,7 +93,13 @@ export default function Header() {
         </nav>
 
         {/* ---------------- Navbar Móvil ---------------- */}
-        <nav className="md:hidden flex justify-between items-center px-4 py-3 bg-gray-900 text-white shadow-md fixed top-0 left-0 w-full z-50">
+        <nav
+          className={`md:hidden flex justify-between items-center px-4 py-3 fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
+            scrolled
+              ? "bg-[#0f0f1f]/80 backdrop-blur-md shadow-lg"
+              : "bg-[#0f0f1f]"
+          } text-white`}
+        >
           <button
             id="menu-button"
             className="text-white focus:outline-none z-50"
@@ -87,7 +107,7 @@ export default function Header() {
           >
             {menuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
-          <div className="text-xl font-bold absolute left-1/2 transform -translate-x-1/2 z-50 gradient-text text-shadow animate-fade-up shine-effect">
+          <div className="text-xl font-bold absolute left-1/2 transform -translate-x-1/2 z-50 gradient-text">
             CREAVIX
           </div>
         </nav>
@@ -103,7 +123,7 @@ export default function Header() {
         {/* Menú lateral móvil */}
         <div
           ref={menuRef}
-          className={`fixed top-0 left-0 h-full w-64 bg-gray-900 shadow-lg transform ${
+          className={`fixed top-0 left-0 h-full w-64 bg-[#0f0f1f] shadow-lg transform ${
             menuOpen ? "translate-x-0" : "-translate-x-full"
           } transition-transform duration-300 ease-in-out md:hidden z-50`}
         >
@@ -145,6 +165,7 @@ export default function Header() {
         </div>
       </header>
 
+      {/* Espaciador para que el contenido no se esconda debajo del header */}
       <div className="h-16 md:h-20" />
     </>
   );

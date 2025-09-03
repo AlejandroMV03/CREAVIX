@@ -19,12 +19,13 @@ body {
   0% { background-position: 0 0; }
   100% { background-position: 0 -500px; }
 }
-
-/* Clase para animar estrellas */
 .animate-star {
   animation: starMove 100s linear infinite;
 }
 
+/* -------------------------
+   Gradientes animados
+-------------------------- */
 @keyframes gradientMove {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -34,45 +35,205 @@ body {
 .animate-gradient {
   background: linear-gradient(270deg, #FFD700, #FFFFFF, #FFD700);
   background-size: 600% 600%;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradientMove 5s ease infinite;
 }
 
-.font-title {
-  font-family: 'Playfair Display', serif;
-}
+/* -------------------------
+   Fuentes personalizadas
+-------------------------- */
+.font-title { font-family: 'Playfair Display', serif; }
+.font-text  { font-family: 'Georgia', serif; }
+.font-body  { font-family: 'Montserrat', sans-serif; }
 
-.font-text {
-  font-family: 'Georgia', serif;
-}
-
-.font-body {
-  font-family: 'Montserrat', sans-serif;
-}
-
+/* -------------------------
+   Efectos de texto
+-------------------------- */
 .text-glow {
   text-shadow: 0 0 5px #3b82f6, 0 0 10px #8b5cf6;
 }
 
 .text-gradient {
   background: linear-gradient(90deg, #8b5cf6, #3b82f6, #06b6d4);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 @keyframes textGlow {
-  0%, 100% { text-shadow: 0 0 5px #3b82f6, 0 0 10px #8b5cf6; }
+  0%, 100% { text-shadow: 0 0 5px #3b82f6, 0 0 10px #f65c5c; }
   50% { text-shadow: 0 0 20px #06b6d4, 0 0 40px #3b82f6; }
 }
+.animate-glow { animation: textGlow 2s infinite; }
 
-.animate-glow {
-  animation: textGlow 2s infinite;
+/* -------------------------
+   Texto con degradado animado para CREAVIX
+-------------------------- */
+.gradient-text {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  background: linear-gradient(
+    270deg,
+    #0077ff, #00d4ff, #0011ff, #ff5e6c, #9b5eff, #00ffee
+  );
+  background-size: 1200% 1200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMoveSmooth 15s ease infinite;
+  letter-spacing: 1px;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
 }
+
+@keyframes gradientMoveSmooth {
+  0% { background-position: 0% 50%; }
+  25% { background-position: 50% 50%; }
+  50% { background-position: 100% 50%; }
+  75% { background-position: 50% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* -------------------------
+   Animación letra por letra general
+-------------------------- */
+.animated-text {
+  display: inline-block;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  background: linear-gradient(
+    270deg,
+    #0077ff, #00d4ff, #0011ff, #ff5e6c, #9b5eff, #00ffee
+  );
+  background-size: 1200% 1200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMoveSmooth 15s ease infinite;
+  letter-spacing: 1px;
+}
+
+.animated-text span {
+  display: inline-block;
+  opacity: 0;
+  transform: translate3d(0, 50px, 0) rotateZ(10deg);
+  animation: letterIn 1s forwards;
+  animation-fill-mode: forwards;
+}
+
+@keyframes letterIn {
+  0% { opacity: 0; transform: translate3d(0, 50px, 0) rotateZ(10deg); }
+  60% { opacity: 1; transform: translate3d(0, -5px, 0) rotateZ(-2deg); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0) rotateZ(0deg); }
+}
+
+.animated-text span:hover {
+  transform: translateY(-3px) scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+/* -------------------------
+   Animación letra por letra grande "Transformamos ideas..."
+-------------------------- */
+.animated-letter {
+  display: inline-block;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: clamp(2.5rem, 6vw, 5rem); /* tamaño responsive grande */
+  background: linear-gradient(
+    270deg,
+    #0077ff, #00d4ff, #0011ff, #ff5e6c, #9b5eff, #00ffee
+  );
+  background-size: 1200% 1200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  opacity: 0;
+  transform: translate3d(0, 50px, 0) rotateZ(10deg);
+  animation: letterIn 0.8s forwards, gradientMoveSmooth 15s ease infinite;
+}
+
+.animated-letter:hover {
+  transform: translateY(-3px) scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+/* -------------------------
+   Animación fadeUp para secciones
+-------------------------- */
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeUp { animation: fadeUp 0.8s ease forwards; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
 
 
 /* -------------------------
-   Opcional: puedes agregar
-   clases extras para
-   contenedores si quieres
+   Estilo estético para párrafos <p>
 -------------------------- */
+.p-aesthetic {
+  font-family: 'Montserrat', sans-serif; /* elegante y legible */
+  font-size: 1.125rem; /* tamaño cómodo */
+  line-height: 1.8; /* buen espaciado entre líneas */
+  letter-spacing: 0.5px; /* ligero espaciado de letras */
+  text-align: justify; /* justificado para mejor lectura */
+  text-shadow: 0 0 1px rgba(0,0,0,0.2); /* sutil sombra para resaltar */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.p-aesthetic:hover {
+  transform: translateY(-2px);
+  text-shadow: 0 0 4px rgba(255,255,255,0.3); /* pequeño glow al pasar el mouse */
+}
+
+/* -------------------------
+   Estilo neón elegante para párrafos <p>
+------------------------- */
+.p-neon {
+  font-family: 'Montserrat', sans-serif; /* elegante y legible */
+  font-size: 1.125rem; /* tamaño cómodo */
+  line-height: 1.8; /* buen espaciado */
+  text-align: justify; /* justificado */
+  color: #c0faff; /* color principal del texto */
+  text-shadow: 
+    0 0 2px #00fff7, 
+    0 0 5px #00fff7, 
+    0 0 10px #00d4ff, 
+    0 0 20px #00b0ff; /* glow tipo neón */
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.p-neon:hover {
+  transform: translateY(-2px);
+  text-shadow: 
+    0 0 4px #00fff7, 
+    0 0 10px #00fff7, 
+    0 0 15px #00d4ff, 
+    0 0 25px #00b0ff; /* glow más intenso al pasar el mouse */
+}
+
+/* -------------------------
+   Estilo elegante para párrafos
+------------------------- */
+.p-elegant {
+  font-family: 'Playfair Display', serif; /* nueva fuente elegante */
+  font-size: 1.25rem; /* un poco más grande */
+  line-height: 1.9; /* espaciado cómodo */
+  letter-spacing: 0.5px; /* ligero espacio entre letras */
+  text-align: justify; /* lectura agradable */
+  color: rgb(240, 233, 233); /* manteniendo tu color original */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.p-elegant:hover {
+  transform: translateY(-2px);
+  color: #c0faff; /* pequeño efecto al pasar el mouse */
+}
+
+/* -------------------------
+   Extras opcionales
+-------------------------- */
+/* Puedes agregar más estilos de contenedor aquí */
