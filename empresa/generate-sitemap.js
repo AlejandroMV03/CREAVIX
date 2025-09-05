@@ -20,6 +20,7 @@ const pages = [
   '/Home',
   '/Contacto',
   '/Somos',
+    '/Servicios',
 ];
 
 // Agregamos las rutas al sitemap

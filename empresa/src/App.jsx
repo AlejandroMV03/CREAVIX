@@ -4,6 +4,7 @@ import Header from './components/Header.jsx';
 import Contacto from './Pages/Contacto.jsx';
 import Footer from './components/Footer.jsx';
 import Somos from './Pages/Somos.jsx';
+import Servicios from './Pages/Servicios.jsx';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/Inicio' element={<Home />} />
           <Route path='/Contacto' element={<Contacto />} />
+          <Route path='/Servicios' element={<Servicios />} />
           <Route path='/Somos' element={<Somos />} />
         </Routes>
         <Footer />

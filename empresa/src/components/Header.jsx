@@ -55,7 +55,7 @@ export default function Header() {
               className="h-10 w-auto md:h-12"
             />
             <span className="text-2xl md:text-2xl font-bold gradient-text">
-              CREAVIX
+              CREAVIX SFC
             </span>
           </div>
           <ul className="flex space-x-8 text-lg">
@@ -77,6 +77,16 @@ export default function Header() {
                 }
               >
                 ¿Quiénes somos?
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/Servicios"
+                className={({ isActive }) =>
+                  isActive ? "text-yellow-300" : "hover:text-yellow-300"
+                }
+              >
+                Servicios
               </NavLink>
             </li>
             <li>
@@ -149,6 +159,17 @@ export default function Header() {
               }
             >
               ¿Quiénes somos?
+            </NavLink>
+            <NavLink
+              to="/Servicios"
+              onClick={() => setMenuOpen(false)}
+              className={({ isActive }) =>
+                isActive
+                  ? "block text-yellow-300 text-xl"
+                  : "block text-white text-xl hover:text-yellow-300"
+              }
+            >
+              Servicios
             </NavLink>
             <NavLink
               to="/Contacto"
