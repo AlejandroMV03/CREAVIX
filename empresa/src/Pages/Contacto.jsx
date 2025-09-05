@@ -59,12 +59,12 @@ const Contacto = () => {
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <div className="space-y-6 text-lg text-blue-200 font-body">
             <p className="flex items-center gap-2">
-              📧 <strong>Email Empresa:</strong>{" "}
+              📧 <strong>Email del Asesor principal:</strong>{" "}
               <a
-                href="mailto:creavixsfc@gmail.com"
+                href="mailto:asesorprincipal@creavixsfc.com"
                 className="text-cyan-400 hover:underline"
               >
-                creavixsfc@gmail.com
+                asesorprincipal@creavixsfc.com
               </a>
             </p>
             <p className="flex items-center gap-2">

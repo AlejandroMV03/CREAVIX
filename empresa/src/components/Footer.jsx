@@ -36,11 +36,11 @@ const Footer = () => {
         {/* Izquierda: Contacto (vertical) */}
         <div className="flex flex-col gap-6 min-w-[240px]">
           <a
-  href="https://mail.google.com/mail/?view=cm&fs=1&to=creavixsfc@gmail.com"
+  href="https://mail.google.com/mail/?view=cm&fs=1&to=asesorprincipal@creavixsfc.com"
   target="_blank"
   rel="noopener noreferrer"
   className="flex items-center gap-3 hover:text-yellow-400 transition text-base"
-  aria-label="Enviar correo a creavixsfc@gmail.com"
+  aria-label="Enviar correo a asesor principal"
 >
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +57,7 @@ const Footer = () => {
       d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m0 8a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h14a2 2 0 012 2v8z"
     />
   </svg>
-  creavixsfc@gmail.com
+  asesorprincipal@creavixsfc.com
 </a>
 
           <a
